@@ -19,7 +19,7 @@ import {
   Home,
   Factory,
   School,
-  LucideIcon 
+  LucideIcon,
 } from "lucide-react";
 import Link from "next/link";
 import InquiryModal from "./inquiry-modal";
@@ -163,23 +163,25 @@ export default function Hero() {
               }`}
             >
               {/* Badge */}
-              <div className="inline-flex items-center gap-3 pl-1 pr-5 py-1.5 rounded-full bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-transparent border border-cyan-500/20 backdrop-blur-md group hover:border-cyan-500/40 transition-all duration-300">
-                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600">
-                  <Zap className="w-4 h-4 text-white" />
+              <div className="max-lg:flex max-md:justify-center">
+                <div className="inline-flex items-center gap-3 pl-1 pr-5 py-1.5 rounded-full bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-transparent border border-cyan-500/20 backdrop-blur-md group hover:border-cyan-500/40 transition-all duration-300">
+                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600">
+                    <Zap className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-sm font-semibold bg-gradient-to-r from-cyan-200 to-blue-300 bg-clip-text text-transparent">
+                    Advanced Security Solutions
+                  </span>
                 </div>
-                <span className="text-sm font-semibold bg-gradient-to-r from-cyan-200 to-blue-300 bg-clip-text text-transparent">
-                  Advanced Security Solutions
-                </span>
               </div>
 
               {/* Main Heading */}
               <div className="space-y-5">
-                <div className="space-y-2">
-                  <h1 className="font-orbitron text-5xl sm:text-6xl lg:text-7xl font-black leading-none tracking-tight">
+                <div className="space-y-2 max-sm:flex max-sm:justify-center">
+                  <h1 className="font-orbitron text-6xl md:text-5xl sm:text-6xl lg:text-7xl font-black leading-none tracking-tight">
                     <span className="block bg-gradient-to-br from-white via-cyan-100 to-blue-200 bg-clip-text text-transparent">
                       KINETIC
                     </span>
-                    <span className="block text-4xl sm:text-5xl lg:text-6xl bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent mt-1">
+                    <span className="block max-sm:text-center text-4xl md:text-4xl sm:text-5xl lg:text-6xl bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent mt-1">
                       NETWORK
                     </span>
                   </h1>
@@ -187,12 +189,12 @@ export default function Hero() {
 
                 {/* Dynamic Content Area */}
                 <div className="space-y-3 max-w-xl">
-                  <h2 className="text-xl sm:text-2xl font-thin text-white leading-tight">
+                  <h2 className="text-xl sm:text-2xl font-thin max-sm:text-center text-white leading-tight">
                     Securing Your Digital Future
                   </h2>
 
                   {/* Animated Service Title */}
-                  <div className="relative min-h-[28px]">
+                  <div className="relative min-h-[28px] max-sm:text-center">
                     <h3
                       className={`text-lg font-bold bg-gradient-to-r ${
                         services[activeService].color
@@ -207,7 +209,7 @@ export default function Hero() {
                   </div>
 
                   {/* Animated Service Description */}
-                  <div className="relative min-h-[80px]">
+                  <div className="relative min-h-[80px] max-sm:text-center">
                     <p
                       className={`text-sm sm:text-base text-slate-300 leading-relaxed transition-all duration-300 ${
                         isTransitioning
@@ -227,7 +229,7 @@ export default function Hero() {
                 onMouseEnter={() => setIsPaused(true)}
                 onMouseLeave={() => setIsPaused(false)}
               >
-                <div className="flex flex-wrap gap-2.5">
+                <div className="flex flex-wrap max-md:justify-center gap-2.5">
                   {services.map((service, i) => (
                     <Link
                       key={i}
@@ -294,6 +296,8 @@ export default function Hero() {
                 </div>
               </div>
 
+           
+
               {/* Quick Contact */}
               <div className="flex flex-wrap items-center gap-5 pt-1">
                 <div className="h-px flex-1 bg-gradient-to-r from-slate-800 to-transparent" />
@@ -338,9 +342,12 @@ export default function Hero() {
                 <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-500 rounded-3xl opacity-20 blur-2xl" />
 
                 <div className="relative bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-2xl border border-slate-700/50 rounded-2xl p-6 lg:p-8 space-y-6 shadow-2xl">
+                 
+
                   {/* Stats Grid */}
                   <div className="grid grid-cols-2 gap-3 lg:gap-4">
                     {[
+                      
                       {
                         value: "98%",
                         label: "Client Satisfaction",
@@ -444,7 +451,7 @@ export default function Hero() {
                   </div>
 
                   {/* CTA Buttons */}
-                  <div className="flex flex-row gap-3 pt-2">
+                  <div className="flex max-sm:flex-col  gap-3 pt-2">
                     <button
                       onClick={() => setIsModalOpen(true)}
                       className="group relative w-full"
@@ -478,6 +485,8 @@ export default function Hero() {
                       </div>
                     </Link>
                   </div>
+
+                 
                 </div>
               </div>
 
