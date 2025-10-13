@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Camera, Lock, Bell, Monitor, Wifi, ArrowRight, Check, Zap } from 'lucide-react';
+import { Camera, Lock, Bell, Monitor, Wifi, ArrowRight, Check, Zap, LucideIcon  } from 'lucide-react';
 
 interface Service {
-  icon: any;
+  icon: LucideIcon;
   title: string;
   description: string;
   features: string[];
@@ -179,7 +179,7 @@ export default function FeaturedServices() {
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
           <p className="text-slate-400 mb-6">
-            Can't find what you're looking for?
+            Can&apos;t find what you&apos;re looking for?
           </p>
           <Link
             href="/contact"

@@ -19,12 +19,13 @@ import {
   Home,
   Factory,
   School,
+  LucideIcon 
 } from "lucide-react";
 import Link from "next/link";
 import InquiryModal from "./inquiry-modal";
 
 interface Service {
-  icon: any;
+  icon: LucideIcon;
   label: string;
   color: string;
   title: string;

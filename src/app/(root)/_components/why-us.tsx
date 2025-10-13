@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { Shield, Zap, Clock, Award, HeadphonesIcon, ThumbsUp, Users, BadgeCheck, Wrench, TrendingUp, Sparkles, Target } from 'lucide-react';
+import { Shield, Zap, Clock, Award, HeadphonesIcon, ThumbsUp, Users, BadgeCheck, Wrench, TrendingUp, Sparkles, Target, LucideIcon } from 'lucide-react';
 
 interface Feature {
-  icon: any;
+  icon: LucideIcon;
   title: string;
   description: string;
   gradient: string;

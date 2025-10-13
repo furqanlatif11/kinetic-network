@@ -126,7 +126,7 @@ export default function InquiryModal({ isOpen, onClose, service }: InquiryModalP
                   Get Free Quote
                 </h2>
                 <p className="text-sm text-slate-400 mt-1">
-                  Fill out the form and we'll get back to you within 24 hours
+                  Fill out the form and we&apos;ll get back to you within 24 hours
                 </p>
               </div>
               <button
