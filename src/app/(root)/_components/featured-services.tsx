@@ -87,7 +87,7 @@ export default function FeaturedServices() {
           </div>
 
           {/* Heading */}
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-orbitron font-black text-white">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl  font-black text-white">
             Complete Security
             <span className="block mt-2 bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
               Solutions

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Orbitron } from 'next/font/google';
+import { Inter, Montserrat } from 'next/font/google';
 import './globals.scss';
 import Navbar from './_components/navbar';
 
@@ -8,9 +8,9 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-const orbitron = Orbitron({ 
+const montserrat = Montserrat({ 
   subsets: ['latin'],
-  variable: '--font-orbitron',
+  variable: '--font-monserrat',
   weight: ['400', '500', '600', '700', '800', '900']
 });
 
@@ -27,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${orbitron.variable} font-sans antialiased bg-slate-950 text-white`}>
+      <body className={`${inter.variable} ${montserrat.variable} font-sans antialiased bg-slate-950 text-white`}>
         {/* Background Effects */}
         <div className="fixed inset-0 -z-10 overflow-hidden">
           {/* Gradient Overlay */}

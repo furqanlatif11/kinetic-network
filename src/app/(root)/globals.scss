@@ -3,14 +3,18 @@
 @layer base {
   :root {
     --font-inter: 'Inter', system-ui, sans-serif;
-    --font-orbitron: 'Orbitron', monospace;
+    --font-monserrat: 'Monserrat', monospace;
   }
 }
 
 @layer utilities {
   .font-orbitron {
-    font-family: var(--font-orbitron);
+    font-family: var(--font-monserrat);
   }
+}
+
+body {
+  font-family: var(--font-monserrat);;
 }
 
 /* Smooth Scrolling */
