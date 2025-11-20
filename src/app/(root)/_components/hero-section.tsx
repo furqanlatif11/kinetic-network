@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Camera, Lock, Bell, Monitor, Wifi, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Camera, Lock, Bell, Monitor, X, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -49,11 +49,10 @@ const services = [
   },
 ];
 
-export default function HeroServicesSlider() {
+export default function HeroServicesCard() {
   const [index, setIndex] = useState(0);
   const [openModal, setOpenModal] = useState(false);
 
-  // Autoplay
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % services.length);
@@ -62,99 +61,91 @@ export default function HeroServicesSlider() {
   }, []);
 
   const next = () => setIndex((prev) => (prev + 1) % services.length);
-  const prev = () =>
-    setIndex((prev) => (prev - 1 + services.length) % services.length);
+  const prev = () => setIndex((prev) => (prev - 1 + services.length) % services.length);
 
   const service = services[index];
 
   return (
-    <div className="relative w-full h-[90vh] overflow-hidden bg-black text-white font-inter">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={service.label}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
-          className="absolute inset-0"
-        >
-          <Image
-            src={service.image}
-            alt={service.label}
-            className="w-full h-full object-cover"
-            height={1000}
-            width={1000}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/95 via-black/60 to-black/20 " />
-        </motion.div>
-      </AnimatePresence>
+    <div className="w-full flex justify-center px-6 py-20 ">
+      {/* Dashboard-style hero card */}
+      <div className="relative w-full max-w-8xl h-[90vh] rounded-3xl shadow-2xl overflow-hidden bg-white">
+        {/* Background Image */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={service.label}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={service.image}
+              alt={service.label}
+              className="w-full h-full object-cover"
+              height={1000}
+              width={1000}
+            />
+            {/* Black overlay for readability */}
+            <div className="absolute inset-0 bg-black/60" />
+          </motion.div>
+        </AnimatePresence>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto h-full flex items-center px-6">
-        <motion.div
-          initial={{ x: -40, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-2xl space-y-4"
-        >
-          {/* <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r ${service.color} text-black font-semibold mb-4`}>
-            <service.icon size={18} />
-            {service.label}
-          </div> */}
-
-          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-[1.05] drop-shadow-2xl mb-4 drop-shadow-xl border-l-4 border-blue-600 ps-2">
-            {service.title}
-          </h1>
-          <p className=" text-base md:text-xl text-gray-200/90 leading-relaxed max-w-xl mb-6 drop-shadow-xl leading-relaxed">
-            {service.description}
-          </p>
-
-          <div className="flex gap-4">
-            <button
-              onClick={() => setOpenModal(true)}
-              className="px-7 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-500 transition-all duration-300"
-            >
-              Get a Quote
-            </button>
-
-            <Link
-              href={service.href}
-              className="px-7 py-2 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/20 backdrop-blur-sm transition-all duration-300"
-            >
-              Learn More
-            </Link>
+        {/* Content */}
+        <div className="relative z-10 h-full flex items-center">
+          <div className="max-w-2xl px-8 md:px-16">
+            <h1 className="text-4xl md:text-4xl font-semibold text-white mb-4 drop-shadow-lg border-l-4 border-blue-500 pl-4">
+              {service.title}
+            </h1>
+            <p className="text-gray-200 text-lg md:text-xl mb-6 drop-shadow-lg">
+              {service.description}
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <button
+                onClick={() => setOpenModal(true)}
+                className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow hover:bg-blue-500 transition-all duration-300"
+              >
+                Get a Quote
+              </button>
+              <Link
+                href={service.href}
+                className="px-6 py-3 border border-white/30 text-white font-semibold rounded-full hover:bg-white/20 backdrop-blur-sm transition-all duration-300"
+              >
+                Learn More
+              </Link>
+            </div>
           </div>
-        </motion.div>
+        </div>
+
+        {/* Slider Controls */}
+        <button
+          onClick={prev}
+          className="absolute bottom-6 right-24 bg-white/40 p-4 rounded-full hover:bg-blue-600/70 transition-all shadow-xl"
+        >
+          <ChevronLeft size={24} />
+        </button>
+        <button
+          onClick={next}
+          className="absolute bottom-6 right-10 bg-white/40 p-4 rounded-full hover:bg-blue-600/70 transition-all shadow-xl"
+        >
+          <ChevronRight size={24} />
+        </button>
       </div>
 
-      {/* Slider Controls */}
-      <button
-        onClick={prev}
-        className="absolute bottom-10 right-24 bg-white/40 backdrop-blur-xl p-4 rounded-full hover:bg-blue-600/70 transition-all shadow-xl"
-      >
-        <ChevronLeft size={20} />
-      </button>
-      <button
-        onClick={next}
-        className="absolute bottom-10 right-10 bg-white/40 backdrop-blur-xl p-4 rounded-full hover:bg-blue-600/70 transition-all shadow-xl"
-      >
-        <ChevronRight size={20} />
-      </button>
-
-      {/* Quote Modal */}
+      {/* Modal */}
       <AnimatePresence>
         {openModal && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-[200] px-4"
+            className="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center z-50 px-4"
           >
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              className="bg-white rounded-3xl max-w-lg w-full p-8 relative text-black shadow-[0_12px_50px_rgba(0,0,0,0.35)]"
+              className="bg-white rounded-3xl max-w-lg w-full p-8 shadow-xl"
             >
               <button
                 onClick={() => setOpenModal(false)}
@@ -169,24 +160,24 @@ export default function HeroServicesSlider() {
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className="w-full border border-gray-300 rounded-xl px-4 py-3 bg-gray-50 focus:ring-2 focus:ring-black/80 outline-none transition"
+                  className="w-full border border-gray-300 rounded-xl px-4 py-3 bg-gray-50 focus:ring-2 focus:ring-blue-400 outline-none transition"
                 />
                 <input
                   type="email"
                   placeholder="Email Address"
-                  className="w-full border border-gray-300 rounded-xl px-4 py-3 bg-gray-50 focus:ring-2 focus:ring-black/80 outline-none transition"
+                  className="w-full border border-gray-300 rounded-xl px-4 py-3 bg-gray-50 focus:ring-2 focus:ring-blue-400 outline-none transition"
                 />
                 <input
                   type="text"
                   placeholder="Phone Number"
-                  className="w-full border border-gray-300 rounded-xl px-4 py-3 bg-gray-50 focus:ring-2 focus:ring-black/80 outline-none transition"
+                  className="w-full border border-gray-300 rounded-xl px-4 py-3 bg-gray-50 focus:ring-2 focus:ring-blue-400 outline-none transition"
                 />
                 <textarea
                   placeholder="Your Message"
                   rows={4}
-                  className="w-full border border-gray-300 rounded-xl px-4 py-3 bg-gray-50 focus:ring-2 focus:ring-black/80 outline-none transition"
+                  className="w-full border border-gray-300 rounded-xl px-4 py-3 bg-gray-50 focus:ring-2 focus:ring-blue-400 outline-none transition"
                 />
-                <button className="bg-black text-white py-3.5 rounded-xl font-semibold hover:bg-gray-900 transition-all">
+                <button className="bg-blue-600 text-white py-3.5 rounded-xl font-semibold hover:bg-blue-500 transition-all">
                   Submit Request
                 </button>
               </form>

@@ -172,7 +172,7 @@ export default function Navbar() {
                             : "text-white hover:text-blue-500"
                           : activeLink === link.href
                           ? "text-blue-400"
-                          : "text-slate-200 hover:text-white"
+                          : "text-slate-800 hover:text-blue-400"
                       }`}
                     >
                       {link.name}
@@ -202,7 +202,7 @@ export default function Navbar() {
                             : "text-white hover:text-blue-500"
                           : activeLink === link.href
                           ? "text-blue-400"
-                          : "text-slate-200 hover:text-white"
+                          : "text-slate-800 hover:text-blue-400 "
                       }`}
                     >
                       {link.name}
@@ -282,7 +282,7 @@ export default function Navbar() {
                 className={`hidden md:flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
                   isScrolled
                     ? "text-slate-200 hover:text-cyan-400 hover:bg-cyan-500/10"
-                    : "text-slate-200 hover:text-white hover:bg-white/10"
+                    : "text-slate-800 hover:text-white hover:bg-white/10"
                 }`}
               >
                 <Phone className="w-4 h-4" />
@@ -303,12 +303,12 @@ export default function Navbar() {
                 className={`lg:hidden p-2 rounded-lg transition-all duration-300 relative z-50 ${
                   isScrolled
                     ? "text-white hover:bg-cyan-500/10"
-                    : "text-white hover:bg-white/10"
+                    : "text-slate-800 hover:bg-white/10"
                 }`}
                 aria-label="Toggle menu"
               >
                 {isMobileMenuOpen ? (
-                  <X className="w-6 h-6" />
+                  <X className="w-6 h-6 text-white" />
                 ) : (
                   <Menu className="w-6 h-6" />
                 )}

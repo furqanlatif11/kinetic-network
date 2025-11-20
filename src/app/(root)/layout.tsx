@@ -27,18 +27,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${montserrat.variable} font-sans antialiased bg-slate-950 text-white`}>
+      <body className={`${inter.variable} ${montserrat.variable} font-sans antialiased text-white`}>
         {/* Background Effects */}
         <div className="fixed inset-0 -z-10 overflow-hidden">
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-blue-950/20 to-slate-950" />
           
           {/* Grid Pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(56,189,248,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(56,189,248,0.03)_1px,transparent_1px)] bg-[size:72px_72px]" />
           
-          {/* Radial Gradient Spots */}
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+   
         </div>
 
         <Navbar />
