@@ -68,7 +68,7 @@ export default function HeroServicesCard() {
   return (
     <div className="w-full flex justify-center px-6 py-20 ">
       {/* Dashboard-style hero card */}
-      <div className="relative w-full max-w-8xl h-[90vh] rounded-3xl shadow-2xl overflow-hidden bg-white">
+      <div className="relative w-full max-w-8xl h-[70vh] rounded-3xl overflow-hidden ">
         {/* Background Image */}
         <AnimatePresence mode="wait">
           <motion.div
@@ -118,18 +118,22 @@ export default function HeroServicesCard() {
         </div>
 
         {/* Slider Controls */}
-        <button
-          onClick={prev}
-          className="absolute bottom-6 right-24 bg-white/40 p-4 rounded-full hover:bg-blue-600/70 transition-all shadow-xl"
-        >
-          <ChevronLeft size={24} />
-        </button>
-        <button
-          onClick={next}
-          className="absolute bottom-6 right-10 bg-white/40 p-4 rounded-full hover:bg-blue-600/70 transition-all shadow-xl"
-        >
-          <ChevronRight size={24} />
-        </button>
+        {/* Slider Controls */}
+<div className="absolute bottom-6 right-6 flex gap-4 z-20">
+  <button
+    onClick={prev}
+    className="bg-white/40 p-4 rounded-full hover:bg-blue-600/70 transition-all shadow-xl"
+  >
+    <ChevronLeft size={24} />
+  </button>
+  <button
+    onClick={next}
+    className="bg-white/40 p-4 rounded-full hover:bg-blue-600/70 transition-all shadow-xl"
+  >
+    <ChevronRight size={24} />
+  </button>
+</div>
+
       </div>
 
       {/* Modal */}

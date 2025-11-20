@@ -106,3 +106,8 @@ button {
   @apply bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent;
 } */
 
+/* Add this to your global CSS or tailwind layer */
+.sectionHeading {
+  @apply text-3xl md:text-4xl lg:text-5xl leading-tight mb-6;
+}
+

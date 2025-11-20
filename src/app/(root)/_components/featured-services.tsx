@@ -54,11 +54,11 @@ export default function FeaturedServices() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative py-20 sm:py-24 lg:py-28 bg-white">
+    <section className="relative  bg-white">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900">
+          <h2 className="sectionHeading font-bold text-gray-900">
             Our Security <span className="text-blue-600">Solutions</span>
           </h2>
           <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
