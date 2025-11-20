@@ -55,7 +55,7 @@ export default function FeaturedServices() {
 
   return (
     <section className="relative  bg-white">
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="sectionHeading font-bold text-gray-900">
@@ -117,7 +117,7 @@ export default function FeaturedServices() {
         <div className="mt-16 text-center">
           <Link
             href="/contact"
-            className="inline-block px-8 py-4 bg-blue-600 text-white rounded-full font-semibold shadow hover:bg-blue-800 transition-all"
+            className="inline-block px-8 py-4 bg-blue-400 text-white rounded-full font-semibold shadow hover:bg-blue-800 transition-all"
           >
             Contact Us for Custom Solutions
           </Link>

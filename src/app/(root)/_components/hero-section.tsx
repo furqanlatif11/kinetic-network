@@ -2,7 +2,16 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Camera, Lock, Bell, Monitor, X, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Camera,
+  Lock,
+  Bell,
+  Monitor,
+  X,
+  ChevronLeft,
+  ChevronRight,
+  ArrowUpRight,
+} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -21,7 +30,7 @@ const services = [
     icon: Lock,
     label: "Access Control",
     color: "from-blue-500 to-blue-600",
-    title: "Smart Access Management",
+    title: "Smart Access Management Systems",
     description:
       "Biometric, RFID, and mobile-ready access control solutions with full audit tracking.",
     href: "/services/access-control",
@@ -61,7 +70,8 @@ export default function HeroServicesCard() {
   }, []);
 
   const next = () => setIndex((prev) => (prev + 1) % services.length);
-  const prev = () => setIndex((prev) => (prev - 1 + services.length) % services.length);
+  const prev = () =>
+    setIndex((prev) => (prev - 1 + services.length) % services.length);
 
   const service = services[index];
 
@@ -103,15 +113,15 @@ export default function HeroServicesCard() {
             <div className="flex flex-wrap gap-4">
               <button
                 onClick={() => setOpenModal(true)}
-                className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow hover:bg-blue-500 transition-all duration-300"
+                className="px-6 py-3 bg-blue-400 text-white font-semibold rounded-full shadow hover:bg-blue-500 transition-all duration-300"
               >
                 Get a Quote
               </button>
               <Link
                 href={service.href}
-                className="px-6 py-3 border border-white/30 text-white font-semibold rounded-full hover:bg-white/20 backdrop-blur-sm transition-all duration-300"
+                className="bg-white/40 p-4 rounded-full hover:bg-blue-400/70 transition-all"
               >
-                Learn More
+                <ArrowUpRight size={20} />
               </Link>
             </div>
           </div>
@@ -119,21 +129,20 @@ export default function HeroServicesCard() {
 
         {/* Slider Controls */}
         {/* Slider Controls */}
-<div className="absolute bottom-6 right-6 flex gap-4 z-20">
-  <button
-    onClick={prev}
-    className="bg-white/40 p-4 rounded-full hover:bg-blue-600/70 transition-all shadow-xl"
-  >
-    <ChevronLeft size={24} />
-  </button>
-  <button
-    onClick={next}
-    className="bg-white/40 p-4 rounded-full hover:bg-blue-600/70 transition-all shadow-xl"
-  >
-    <ChevronRight size={24} />
-  </button>
-</div>
-
+        <div className="absolute bottom-6 right-6 flex gap-4 z-20">
+          <button
+            onClick={prev}
+            className="bg-white/40 p-4 rounded-full hover:bg-blue-400/70 transition-all shadow-xl"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          <button
+            onClick={next}
+            className="bg-white/40 p-4 rounded-full hover:bg-blue-400/70 transition-all shadow-xl"
+          >
+            <ChevronRight size={24} />
+          </button>
+        </div>
       </div>
 
       {/* Modal */}
