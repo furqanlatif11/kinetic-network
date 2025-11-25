@@ -1,8 +1,7 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
-import { Camera, Lock, Bell, Monitor, Wifi, ArrowRight, Check, LucideIcon } from 'lucide-react';
+import { Camera, Lock, Bell, Monitor, Wifi, LucideIcon } from 'lucide-react';
 
 interface Service {
   icon: LucideIcon;
@@ -10,6 +9,7 @@ interface Service {
   description: string;
   features: string[];
   href: string;
+  image: string;
 }
 
 const services: Service[] = [
@@ -19,6 +19,7 @@ const services: Service[] = [
     description: 'Advanced video surveillance systems with AI-powered analytics and 24/7 monitoring.',
     features: ['4K Ultra HD Cameras', 'AI Motion Detection', 'Cloud Storage', 'Mobile Access'],
     href: '/services/cctv',
+    image: '/assets/images/CCTVSystems.png',
   },
   {
     icon: Lock,
@@ -26,6 +27,7 @@ const services: Service[] = [
     description: 'Smart access management systems with biometric authentication and remote monitoring.',
     features: ['Biometric Scanners', 'Card Access', 'Remote Management', 'Entry Logs'],
     href: '/services/access-control',
+    image: '/assets/images/AccessControl.png',
   },
   {
     icon: Bell,
@@ -33,6 +35,7 @@ const services: Service[] = [
     description: 'Intelligent intrusion detection with instant alerts and professional monitoring.',
     features: ['Motion Sensors', 'Glass Break Detection', 'Instant Alerts', '24/7 Monitoring'],
     href: '/services/alarms',
+    image: '/assets/images/alarmSystems.png',
   },
   {
     icon: Monitor,
@@ -40,6 +43,7 @@ const services: Service[] = [
     description: 'Modern video intercom solutions with remote access and mobile integration.',
     features: ['Video Calling', 'Remote Door Control', 'Mobile App', 'Multi-Unit Support'],
     href: '/services/intercom',
+    image: '/assets/images/intercomSystems.png',
   },
   {
     icon: Wifi,
@@ -47,16 +51,15 @@ const services: Service[] = [
     description: 'Professional network infrastructure with fiber optics and enterprise-grade WiFi.',
     features: ['Fiber Optic Cabling', 'WiFi Optimization', 'Network Security', 'High-Speed Setup'],
     href: '/services/network-solutions',
+    image: '/assets/images/networkSolutions.png',
   },
 ];
 
 export default function FeaturedServices() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   return (
-    <section className="relative  bg-white">
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
-        {/* Section Header */}
+    <section className="relative bg-white py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="sectionHeading font-bold text-gray-900">
             Our Security <span className="text-blue-600">Solutions</span>
@@ -69,58 +72,41 @@ export default function FeaturedServices() {
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Link
-              key={index}
-              href={service.href}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              className="group"
-            >
-              <div
-                className={`relative bg-white border border-gray-200 rounded-2xl p-6 lg:p-8 shadow-sm transition-transform duration-300 hover:shadow-lg hover:-translate-y-1`}
-              >
-                {/* Icon */}
-                <div className="relative mb-6 w-14 h-14 flex items-center justify-center rounded-xl bg-blue-100">
-                  <service.icon className="w-7 h-7 text-blue-700" />
-                </div>
+            <Link key={index} href={service.href}>
+              <div className="relative group cursor-pointer overflow-hidden rounded-2xl shadow-lg h-96">
+                {/* Background Image */}
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:blur-sm"
+                />
 
-                {/* Title */}
-                <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-gray-800 transition-colors">
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/30 transition-all duration-500 group-hover:bg-black/50"></div>
+
+                {/* Service Title */}
+                <h3 className="absolute bottom-6 left-6 text-white text-2xl font-bold transition-all duration-500 group-hover:bottom-60">
                   {service.title}
                 </h3>
 
-                {/* Description */}
-                <p className="text-gray-500 text-sm mb-4">{service.description}</p>
-
-                {/* Features */}
-                <ul className="space-y-2 mb-4">
-                  {service.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-2 text-gray-600 text-sm">
-                      <div className="flex items-center justify-center w-5 h-5 bg-blue-100 rounded-full">
-                        <Check className="w-3 h-3 text-blue-500" />
-                      </div>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Learn More */}
-                <div className="text-sm font-medium text-gray-700 flex items-center gap-1 group-hover:text-gray-900 transition-colors">
-                  Learn More <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                {/* Hidden Details on Hover */}
+                <div className="absolute bottom-6 left-6 right-6 text-white opacity-0 transition-all duration-500 group-hover:opacity-100">
+                  <p className="text-sm mb-3">{service.description}</p>
+                  <ul className="mb-4 space-y-1 text-xs">
+                    {service.features.map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2">
+                        <span className="w-3 h-3 bg-blue-500 rounded-full flex-shrink-0"></span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="inline-block px-4 py-2 bg-blue-600 rounded-full font-semibold text-sm hover:bg-blue-700 transition">
+                    Know More
+                  </div>
                 </div>
               </div>
             </Link>
           ))}
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-16 text-center">
-          <Link
-            href="/contact"
-            className="inline-block px-8 py-4 bg-blue-400 text-white rounded-full font-semibold shadow hover:bg-blue-800 transition-all"
-          >
-            Contact Us for Custom Solutions
-          </Link>
         </div>
       </div>
     </section>
