@@ -8,18 +8,19 @@ import {
   Award,
   ThumbsUp,
   Wrench,
-  Sparkles,
   Target,
-  Users,
 } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 
 interface Feature {
-  icon: any;
+  icon: LucideIcon; // instead of `any`
   title: string;
   description: string;
   gradient: string;
   stat?: string;
 }
+
+
 
 const features: Feature[] = [
   {
