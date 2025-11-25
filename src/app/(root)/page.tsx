@@ -1,3 +1,4 @@
+import CTA from './_components/cta';
 import FAQs from './_components/faqs';
 import FeaturedServices from './_components/featured-services';
 import Hero from './_components/hero-section';
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <WhyChooseUs/>
       <FeaturedServices/>
+      <CTA/>
       <Testimonials/>
       <HowWeWork/>
       <FAQs/>

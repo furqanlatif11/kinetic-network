@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Camera,
   Lock,
   Bell,
   Monitor,
-  X,
   ChevronLeft,
   ChevronRight,
   ArrowUpRight,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import QuoteModal from "./quote-modal";
 
 const services = [
   {
@@ -60,25 +60,37 @@ const services = [
 
 export default function HeroServicesCard() {
   const [index, setIndex] = useState(0);
-  const [openModal, setOpenModal] = useState(false);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % services.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const next = () => setIndex((prev) => (prev + 1) % services.length);
   const prev = () =>
     setIndex((prev) => (prev - 1 + services.length) % services.length);
 
+  // Auto-slide with pause control
+  useEffect(() => {
+    if (!isModalOpen && !isHovered) {
+      intervalRef.current = setInterval(next, 5000);
+    } else {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    }
+
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [isModalOpen, isHovered]);
+
   const service = services[index];
 
   return (
-    <div className="w-full flex justify-center px-6 py-20 ">
+    <div
+      className="w-full flex justify-center px-6 py-20"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       {/* Dashboard-style hero card */}
-      <div className="relative w-full max-w-8xl h-[70vh] rounded-3xl overflow-hidden ">
+      <div className="relative w-full max-w-8xl h-[70vh] rounded-3xl overflow-hidden">
         {/* Background Image */}
         <AnimatePresence mode="wait">
           <motion.div
@@ -112,7 +124,7 @@ export default function HeroServicesCard() {
             </p>
             <div className="flex flex-wrap gap-4">
               <button
-                onClick={() => setOpenModal(true)}
+                onClick={() => setIsModalOpen(true)}
                 className="px-6 py-3 bg-blue-400 text-white font-semibold rounded-full shadow hover:bg-blue-500 transition-all duration-300"
               >
                 Get a Quote
@@ -127,7 +139,6 @@ export default function HeroServicesCard() {
           </div>
         </div>
 
-        {/* Slider Controls */}
         {/* Slider Controls */}
         <div className="absolute bottom-6 right-6 flex gap-4 z-20">
           <button
@@ -147,55 +158,13 @@ export default function HeroServicesCard() {
 
       {/* Modal */}
       <AnimatePresence>
-        {openModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center z-50 px-4"
-          >
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              className="bg-white rounded-3xl max-w-lg w-full p-8 shadow-xl"
-            >
-              <button
-                onClick={() => setOpenModal(false)}
-                className="absolute top-4 right-4 text-gray-600 hover:text-black"
-              >
-                <X size={20} />
-              </button>
-
-              <h2 className="text-2xl font-bold mb-4">Request a Quote</h2>
-
-              <form className="flex flex-col gap-4">
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  className="w-full border border-gray-300 rounded-xl px-4 py-3 bg-gray-50 focus:ring-2 focus:ring-blue-400 outline-none transition"
-                />
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  className="w-full border border-gray-300 rounded-xl px-4 py-3 bg-gray-50 focus:ring-2 focus:ring-blue-400 outline-none transition"
-                />
-                <input
-                  type="text"
-                  placeholder="Phone Number"
-                  className="w-full border border-gray-300 rounded-xl px-4 py-3 bg-gray-50 focus:ring-2 focus:ring-blue-400 outline-none transition"
-                />
-                <textarea
-                  placeholder="Your Message"
-                  rows={4}
-                  className="w-full border border-gray-300 rounded-xl px-4 py-3 bg-gray-50 focus:ring-2 focus:ring-blue-400 outline-none transition"
-                />
-                <button className="bg-blue-600 text-white py-3.5 rounded-xl font-semibold hover:bg-blue-500 transition-all">
-                  Submit Request
-                </button>
-              </form>
-            </motion.div>
-          </motion.div>
+        {isModalOpen && (
+          <QuoteModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            serviceName={service.label}
+            staticImage={service.image}
+          />
         )}
       </AnimatePresence>
     </div>
