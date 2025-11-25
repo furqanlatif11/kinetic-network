@@ -23,8 +23,35 @@ interface NavLink {
 const navLinks: NavLink[] = [
   { name: "Home", href: "/" },
   {
-    name: "Services",
+    name: "Security Systems",
     href: "/services",
+    dropdown: [
+      {
+        name: "CCTV Systems",
+        href: "/services/cctv",
+        description: "Advanced surveillance solutions",
+      },
+      {
+        name: "Access Control",
+        href: "/services/access-control",
+        description: "Secure entry management",
+      },
+      {
+        name: "Alarm Systems",
+        href: "/services/alarms",
+        description: "Intrusion detection systems",
+      },
+      {
+        name: "Intercom Systems",
+        href: "/services/intercom",
+        description: "Communication solutions",
+      },
+      
+    ],
+  },
+  {
+    name: "Data Services",
+    href: "/data-services",
     dropdown: [
       {
         name: "CCTV Systems",
@@ -58,7 +85,6 @@ const navLinks: NavLink[] = [
       },
     ],
   },
-  { name: "Solutions", href: "/solutions" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
