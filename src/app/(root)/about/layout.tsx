@@ -1,4 +1,16 @@
 import type { Metadata } from "next";
+import { Inter, Montserrat } from 'next/font/google';
+
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',
+});
+
+const montserrat = Montserrat({ 
+  subsets: ['latin'],
+  variable: '--font-monserrat',
+  weight: ['400', '500', '600', '700', '800', '900']
+});
 
 export const metadata: Metadata = {
   title: "Kinetic Network - Advanced Security & Technical Solutions",
@@ -15,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body>
+       <body className={`${inter.variable} ${montserrat.variable} font-sans antialiased text-white`}>
         {/* Background Effects */}
         <div className="fixed inset-0 -z-10 overflow-hidden">
           {/* Gradient Overlay */}

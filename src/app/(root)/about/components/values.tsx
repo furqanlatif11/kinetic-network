@@ -51,7 +51,7 @@ const values = [
 
 export default function OurValues() {
   return (
-    <section className="w-full py-24 bg-white">
+    <section className="w-full py-12 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
