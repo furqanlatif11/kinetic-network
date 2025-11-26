@@ -16,7 +16,7 @@ export default function MissionVision() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
+          <h2 className="sectionHeading font-bold text-gray-900 tracking-tight">
             Mission & Vision
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto mt-4 text-lg">

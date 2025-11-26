@@ -18,13 +18,14 @@ export default function AboutPage() {
         reliability, scale, and future-proofing."
         image="/assets/images/heroAboutBg.png"
       />
+      <MissionVision />
       <WhoWeAre
         title="Who We Are"
-        subtitle="Leading Security & Data Solutions Provider"
-        description="At Kinetic Network, we specialize in delivering cutting-edge security systems and digital infrastructure for homes, businesses, and enterprises. Our mission is to provide trusted, scalable, and innovative solutions that ensure safety, privacy, and operational efficiency."
-        image="/assets/images/heroAboutBg.png"
+        description="Kinetic Network delivers top-tier security and digital solutions for homes, businesses, and enterprises. We combine intelligence, innovation, and reliability in every solution we deploy."
+        mediaUrl="/assets/images/luxuryMattressImage.mp4" // video path
+        isVideo={true} // set true for video
       />
-      <MissionVision />
+
       <OurValues />
       <QuoteFormCTA />
     </main>

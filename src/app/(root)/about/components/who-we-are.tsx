@@ -1,25 +1,26 @@
-'use client';
+"use client";
 
-import { FC } from 'react';
-import { motion } from 'framer-motion';
+import { FC } from "react";
+import { motion } from "framer-motion";
 
 interface WhoWeAreProps {
-  title?: string;
-  subtitle?: string;
+  title: string;
   description: string;
-  image?: string; // optional illustrative image
+  mediaUrl?: string; // can be image or video
+  isVideo?: boolean; // set true if mediaUrl is a video
 }
 
 const WhoWeAre: FC<WhoWeAreProps> = ({
-  title = 'Who We Are',
-  subtitle = 'Kinetic Network Overview',
+  title,
   description,
-  image,
+  mediaUrl,
+  isVideo = false,
 }) => {
   return (
-    <section className="w-full bg-white py-12">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
-        {/* Left: Text */}
+    <section className="w-full bg-white py-12 px-6 md:px-12">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+        
+        {/* Left Content */}
         <motion.div
           className="flex-1"
           initial={{ opacity: 0, y: 50 }}
@@ -27,15 +28,12 @@ const WhoWeAre: FC<WhoWeAreProps> = ({
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">{title}</h2>
-          <h3 className="text-lg text-blue-600 font-medium mb-6">{subtitle}</h3>
-          <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-            {description}
-          </p>
+          <h2 className="sectionHeading font-bold text-gray-900 mb-6">{title}</h2>
+          <p className="text-gray-700 text-lg leading-relaxed">{description}</p>
         </motion.div>
 
-        {/* Right: Optional Image */}
-        {image && (
+        {/* Right Media */}
+        {mediaUrl && (
           <motion.div
             className="flex-1"
             initial={{ opacity: 0, y: 50 }}
@@ -43,11 +41,22 @@ const WhoWeAre: FC<WhoWeAreProps> = ({
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <img
-              src={image}
-              alt={title}
-              className="w-full rounded-2xl shadow-lg object-cover"
-            />
+            {isVideo ? (
+              <video
+                src={mediaUrl}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full rounded-2xl shadow-lg object-cover"
+              />
+            ) : (
+              <img
+                src={mediaUrl}
+                alt={title}
+                className="w-full rounded-2xl shadow-lg object-cover"
+              />
+            )}
           </motion.div>
         )}
       </div>
