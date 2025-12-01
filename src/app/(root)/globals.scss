@@ -3,25 +3,19 @@
 @layer base {
   :root {
     --font-inter: 'Inter', system-ui, sans-serif;
-    --font-monserrat: 'Monserrat', monospace;
-  }
-}
-
-@layer utilities {
-  .font-orbitron {
-    font-family: var(--font-monserrat);
+    --font-montserrat: 'Montserrat', system-ui, sans-serif;
   }
 }
 
 body {
-  font-family: var(--font-monserrat);
+  font-family: var(--font-montserrat);
   background-color: #ffffff;
 }
 
-/* Smooth Scrolling */
 html {
   scroll-behavior: smooth;
 }
+
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {

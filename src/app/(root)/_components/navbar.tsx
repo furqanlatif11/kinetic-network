@@ -363,7 +363,7 @@ export default function Navbar() {
           <div className="sticky top-0 bg-slate-900 border-b border-slate-800 p-6 z-10">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-lg font-orbitron font-bold text-white">
+                <h3 className="text-lg  font-bold text-white">
                   Menu
                 </h3>
                 <p className="text-xs text-slate-400 mt-1">

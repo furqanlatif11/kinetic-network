@@ -122,7 +122,7 @@ export default function InquiryModal({ isOpen, onClose, service }: InquiryModalP
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-blue-500/5" />
             <div className="relative flex items-center justify-between">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-orbitron font-bold text-white">
+                <h2 className="text-2xl sm:text-3xl  font-bold text-white">
                   Get Free Quote
                 </h2>
                 <p className="text-sm text-slate-400 mt-1">

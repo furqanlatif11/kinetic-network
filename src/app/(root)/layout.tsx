@@ -11,9 +11,10 @@ const inter = Inter({
 
 const montserrat = Montserrat({ 
   subsets: ['latin'],
-  variable: '--font-monserrat',
-  weight: ['400', '500', '600', '700', '800', '900']
+  variable: '--font-montserrat',
+  weight: ['400','500','600','700','800','900']
 });
+
 
 export const metadata: Metadata = {
   title: 'Kinetic Network - Advanced Security & Technical Solutions',
