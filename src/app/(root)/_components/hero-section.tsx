@@ -115,8 +115,8 @@ export default function HeroServicesCard() {
 
         {/* Content */}
         <div className="relative z-10 h-full flex items-center">
-          <div className="max-w-2xl px-8 md:px-16">
-            <h1 className="text-4xl md:text-4xl font-semibold text-white mb-4 drop-shadow-lg border-l-4 border-blue-500 pl-4">
+          <div className="max-w-3xl px-8 md:px-16">
+            <h1 className="text-3xl md:text-5xl font-bold text-white drop-shadow-xl leading-tight mb-6 drop-shadow-lg border-l-4 border-blue-500 pl-4">
               {service.title}
             </h1>
             <p className="text-gray-200 text-lg md:text-xl mb-6 drop-shadow-lg">
