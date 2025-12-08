@@ -2,7 +2,7 @@
 
 export default function AccessIntro() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 ">
       <div className="max-w-6xl mx-auto px-6 text-center">
 
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">

@@ -194,7 +194,7 @@ export default function Navbar() {
                       className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 flex items-center gap-1 ${
                         isScrolled
                           ? activeLink === link.href
-                            ? "text-blue-600"
+                            ? "text-blue-400"
                             : "text-white hover:text-blue-500"
                           : activeLink === link.href
                           ? "text-blue-400"

@@ -24,7 +24,7 @@ const types = [
 
 export default function AccessTypes() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-12 bg-white">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Title */}
