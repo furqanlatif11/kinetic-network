@@ -53,7 +53,7 @@ const stats = [
 ];
 
 export default function WhyChooseKinetic() {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <section className="relative bg-white py-12 lg:py-0">
@@ -136,7 +136,7 @@ export default function WhyChooseKinetic() {
                 Ready to Secure Your Future?
               </h3>
               <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-                Schedule a complimentary consultation with our security experts. We'll assess your needs and design a customized solution that fits your requirements and budget.
+                Schedule a complimentary consultation with our security experts. We&apos;ll assess your needs and design a customized solution that fits your requirements and budget.
               </p>
               
               <ul className="space-y-4 mb-8">
