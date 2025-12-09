@@ -12,40 +12,45 @@ const industries = [
 
 export default function AccessIndustries() {
   return (
-    <section className="py-24 bg-gray-50 relative overflow-hidden">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
 
+        {/* Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight">
+          <h2 className="sectionHeading font-bold text-gray-900 tracking-tight">
             Industries We <span className="text-blue-600">Secure</span>
           </h2>
-          <p className="text-gray-600 mt-3 max-w-2xl mx-auto text-lg">
-            We provide advanced access control solutions tailored to a variety of industries.
+          <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">
+            Our access control systems are trusted across a wide range of 
+            commercial, industrial, and residential environments.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {industries.map((i, idx) => {
-            const Icon = i.icon;
+        {/* Industry Grid */}
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          {industries.map((item, index) => {
+            const Icon = item.icon;
             return (
               <div
-                key={idx}
-                className="relative rounded-3xl bg-white border border-transparent shadow-md hover:shadow-xl transition-all duration-500 p-8 flex flex-col items-center text-center group"
+                key={index}
+                className="p-8 rounded-2xl border border-gray-200 bg-white 
+                           hover:border-blue-500 hover:shadow-lg transition-all duration-300 
+                           flex flex-col items-center text-center"
               >
-                {/* Gradient Ring */}
-                <div className="w-16 h-16 mb-4 rounded-full bg-gradient-to-tr from-cyan-400 to-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                  <Icon className="w-8 h-8 text-white" />
+                {/* Simple Clean Icon Wrapper */}
+                <div className="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center mb-4">
+                  <Icon className="w-7 h-7 text-blue-600" />
                 </div>
 
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">
-                  {i.name}
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {item.name}
                 </h3>
 
-                <div className="h-1 w-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             );
           })}
         </div>
+
       </div>
     </section>
   );
