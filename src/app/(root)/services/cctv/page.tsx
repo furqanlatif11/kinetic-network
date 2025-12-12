@@ -1,4 +1,3 @@
-import FAQs from "../../_components/faqs";
 import HeroBanner from "../../_components/HeroBanner";
 import WhyChooseKinetic from "../../_components/why-us";
 import CallToAction from "./_components/cta";

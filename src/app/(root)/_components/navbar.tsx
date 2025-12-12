@@ -38,7 +38,7 @@ const navLinks: NavLink[] = [
       },
       {
         name: "Alarm Systems",
-        href: "/services/alarms",
+        href: "/services/alarm-systems",
         description: "Intrusion detection systems",
       },
       {
