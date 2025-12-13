@@ -46,29 +46,22 @@ export default function AlarmTypes() {
     arrows: false,
     infinite: true,
     autoplay: true,
-    speed: 800,
+    speed: 600,
     slidesToShow: 3,
     slidesToScroll: 1,
-    centerMode: false,
-    adaptiveHeight: true,
+    adaptiveHeight: false,
     responsive: [
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: 2, slidesToScroll: 1, centerMode: false },
-      },
-      {
-        breakpoint: 640,
-        settings: { slidesToShow: 1, slidesToScroll: 1, centerMode: false },
-      },
+      { breakpoint: 1024, settings: { slidesToShow: 2 } },
+      { breakpoint: 640, settings: { slidesToShow: 1 } },
     ],
   };
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6 relative">
+    <section className="py-20 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
-        {/* Header with Navigation */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-10 gap-6">
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row justify-between gap-6 mb-10">
           <div>
             <h2 className="text-4xl font-bold text-gray-900">
               Types of Alarm Systems
@@ -78,53 +71,53 @@ export default function AlarmTypes() {
             </p>
           </div>
 
-          {/* Navigation Buttons */}
-          <div className="flex gap-4">
+          <div className="flex gap-3">
             <button
               onClick={() => sliderRef.current?.slickPrev()}
-              className="p-3 bg-gray-100 rounded-full shadow hover:bg-green-50 transition"
+              className="p-3 rounded-full bg-gray-100 hover:bg-green-50 transition"
             >
-              <ChevronLeft className="w-5 h-5 text-gray-900" />
+              <ChevronLeft />
             </button>
             <button
               onClick={() => sliderRef.current?.slickNext()}
-              className="p-3 bg-gray-100 rounded-full shadow hover:bg-green-50 transition"
+              className="p-3 rounded-full bg-gray-100 hover:bg-green-50 transition"
             >
-              <ChevronRight className="w-5 h-5 text-gray-900" />
+              <ChevronRight />
             </button>
           </div>
         </div>
 
-        {/* Carousel */}
-        <Slider ref={sliderRef} {...settings}>
-          {alarmTypes.map((item, idx) => (
-            <div key={idx} className="px-2">
-              <div className="bg-white rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300">
+        {/* Slider Wrapper */}
+        <div className="overflow-hidden">
+          <Slider ref={sliderRef} {...settings}>
+            {alarmTypes.map((item, idx) => (
+              <div key={idx}>
+                <div className="mx-2 bg-white border rounded-xl shadow-sm hover:shadow-md transition">
 
-                {/* Image */}
-                <div className="h-52 w-full relative">
-                  <Image
-                    src={item.img}
-                    alt={item.title}
-                    fill
-                    className="object-cover"
-                  />
+                  <div className="relative h-52">
+                    <Image
+                      src={item.img}
+                      alt={item.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm">
+                      {item.desc}
+                    </p>
+                  </div>
+
                 </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-
               </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+        </div>
+
       </div>
     </section>
   );

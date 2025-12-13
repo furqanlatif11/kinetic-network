@@ -41,7 +41,7 @@ export default function ServiceOverview() {
         {/* RIGHT IMAGE */}
         <div className="flex justify-center">
           <Image
-            src="/assets/images/alarmOverview.webp"
+            src="/assets/images/alarmSystemOverviewImage.webp"
             alt="Alarm System Overview"
             width={600}
             height={400}

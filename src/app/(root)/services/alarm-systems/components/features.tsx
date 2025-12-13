@@ -1,4 +1,5 @@
 import { Shield, Bell, Wifi, Camera, Lock, AlertTriangle } from "lucide-react";
+import Link from "next/link";
 
 const features = [
   {
@@ -35,9 +36,9 @@ const features = [
 
 export default function FeaturesGrid() {
   return (
-    <section className="py-16 bg-[#222222] text-white">
+    <section className="py-20 my-20 bg-[#222222] text-white">
       <div className="max-w-7xl mx-auto px-6">
-        
+
         {/* Section Header */}
         <div className="text-center mb-14">
           <h2 className="text-4xl font-bold mb-3">
@@ -53,13 +54,35 @@ export default function FeaturesGrid() {
           {features.map((feature, i) => (
             <div
               key={i}
-              className="p-7 bg-zinc-900 rounded-2xl shadow-md border border-zinc-800 hover:border-blue-500 hover:shadow-blue-500/20 transition-all duration-300"
+              className="group p-7 bg-zinc-900 rounded-2xl border border-zinc-800 hover:border-blue-500 transition-all duration-300"
             >
               <div className="mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-              <p className="text-gray-400">{feature.desc}</p>
+
+              <h3 className="text-xl font-semibold mb-2">
+                {feature.title}
+              </h3>
+
+              <p className="text-gray-400 mb-6">
+                {feature.desc}
+              </p>
+
+              {/* Subtle Card CTA */}
+              <Link href="/contact" className="text-sm font-medium text-blue-500 opacity-0 group-hover:opacity-100 transition">
+                Get Quote →
+              </Link>
             </div>
           ))}
+        </div>
+
+        {/* Main CTA */}
+        <div className="mt-16 text-center">
+          <p className="text-gray-400 mb-4">
+            Want a customized alarm system for your property?
+          </p>
+
+          <Link href="/contact" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-medium transition shadow-lg">
+            Request a Free Security Assessment
+          </Link>
         </div>
 
       </div>

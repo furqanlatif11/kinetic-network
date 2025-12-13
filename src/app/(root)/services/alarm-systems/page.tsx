@@ -3,7 +3,6 @@ import ServiceOverview from "./components/ServiceOverview";
 import FeaturesGrid from "./components/features";
 import AlarmTypes from "./components/alarm-types";
 import WhyChooseUs from "../../_components/why-us";
-import CallToAction from "../../_components/cta";
 export default function AlarmSystemsPage() {
   return (
     <div>
