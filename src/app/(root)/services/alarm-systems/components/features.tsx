@@ -36,15 +36,13 @@ const features = [
 
 export default function FeaturesGrid() {
   return (
-    <section className="relative py-28 bg-gradient-to-b from-blue-50 via-blue-100/70 to-white">
-      
+    <section className="relative py-12">
       {/* Decorative structure layer */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[60rem] h-[60rem] rounded-full bg-blue-200/30 blur-3xl" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6">
-
         {/* Section Header */}
         <header className="text-center max-w-3xl mx-auto mb-20">
           <span className="inline-block mb-4 text-sm font-semibold tracking-wide text-blue-600 uppercase">
@@ -56,8 +54,8 @@ export default function FeaturesGrid() {
           </h2>
 
           <p className="mt-6 text-lg text-gray-600">
-            A professional-grade alarm ecosystem engineered to protect residential,
-            commercial, and industrial environments.
+            A professional-grade alarm ecosystem engineered to protect
+            residential, commercial, and industrial environments.
           </p>
         </header>
 
@@ -80,9 +78,7 @@ export default function FeaturesGrid() {
                   {feature.title}
                 </h3>
 
-                <p className="text-gray-600 leading-relaxed">
-                  {feature.desc}
-                </p>
+                <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
 
                 {/* Divider */}
                 <div className="mt-6 h-px w-full bg-gradient-to-r from-blue-100 via-blue-200 to-blue-100" />
@@ -98,21 +94,6 @@ export default function FeaturesGrid() {
             );
           })}
         </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-24 text-center">
-          <p className="text-gray-600 mb-6">
-            Need a system tailored to your specific security requirements?
-          </p>
-
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center px-10 py-4 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-700 transition shadow-sm"
-          >
-            Get a Free Security Consultation
-          </Link>
-        </div>
-
       </div>
     </section>
   );

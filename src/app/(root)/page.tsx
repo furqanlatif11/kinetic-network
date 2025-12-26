@@ -15,6 +15,7 @@ export default function Home() {
       <WhyChooseUs />
       <FeaturedServicesNew />
       <FeaturedServices />
+      <Testimonials />
       <MainCTA
         subtitle="Your Safety, Our Priority"
         title="Smart Security Systems Designed for You"
@@ -25,8 +26,6 @@ export default function Home() {
         bgImage="/assets/images/mainCtaBg.webp"
         className="mt-16 mb-20 mx-6"
       />
-
-      <Testimonials />
       <HowWeWork />
       <FAQs />
       {/* Other sections will be added here */}

@@ -51,7 +51,7 @@ export default function ServiceOverview() {
   };
 
   return (
-    <section className="w-full bg-white py-12 px-6 md:px-12 lg:px-20">
+    <section className="w-full bg-white py-4 px-6 md:px-12 lg:px-20">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 max-w-7xl mx-auto items-center">
         {/* Left Text Content */}
         <motion.div
