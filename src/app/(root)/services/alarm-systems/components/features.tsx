@@ -3,85 +3,113 @@ import Link from "next/link";
 
 const features = [
   {
-    icon: <Shield className="w-8 h-8 text-blue-500" />,
+    icon: Shield,
     title: "24/7 Protection",
-    desc: "Round-the-clock monitoring to safeguard your property with instant alerts.",
+    desc: "Continuous system monitoring with instant response alerts to ensure uninterrupted security.",
   },
   {
-    icon: <Bell className="w-8 h-8 text-blue-500" />,
+    icon: Bell,
     title: "Smart Alarm Triggers",
-    desc: "Advanced sensors detect unauthorized access, smoke, or movement.",
+    desc: "Advanced detection for unauthorized access, fire, smoke, and abnormal movement.",
   },
   {
-    icon: <Wifi className="w-8 h-8 text-blue-500" />,
-    title: "Wireless Systems",
-    desc: "No messy wiring — easy installation with seamless connectivity.",
+    icon: Wifi,
+    title: "Wireless Architecture",
+    desc: "Clean installations with reliable wireless connectivity and minimal infrastructure impact.",
   },
   {
-    icon: <Camera className="w-8 h-8 text-blue-500" />,
+    icon: Camera,
     title: "CCTV Integration",
-    desc: "Connect your alarm with CCTV for enhanced real-time surveillance.",
+    desc: "Seamless alarm and camera integration for live monitoring and evidence recording.",
   },
   {
-    icon: <Lock className="w-8 h-8 text-blue-500" />,
-    title: "Smart Locks Compatible",
-    desc: "Integrates with smart door locks and access control systems.",
+    icon: Lock,
+    title: "Smart Access Control",
+    desc: "Compatible with smart locks, access panels, and role-based entry systems.",
   },
   {
-    icon: <AlertTriangle className="w-8 h-8 text-blue-500" />,
+    icon: AlertTriangle,
     title: "Emergency Notifications",
-    desc: "Instant mobile alerts in case of intrusion, fire, or system breach.",
+    desc: "Real-time alerts delivered instantly to mobile and control centers.",
   },
 ];
 
 export default function FeaturesGrid() {
   return (
-    <section className="py-20 my-20 bg-[#222222] text-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative py-28 bg-gradient-to-b from-blue-50 via-blue-100/70 to-white">
+      
+      {/* Decorative structure layer */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[60rem] h-[60rem] rounded-full bg-blue-200/30 blur-3xl" />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-6">
 
         {/* Section Header */}
-        <div className="text-center mb-14">
-          <h2 className="text-4xl font-bold mb-3">
-            Key Features of Our Alarm Systems
+        <header className="text-center max-w-3xl mx-auto mb-20">
+          <span className="inline-block mb-4 text-sm font-semibold tracking-wide text-blue-600 uppercase">
+            Alarm System Capabilities
+          </span>
+
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+            Designed for Reliable & Scalable Security
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Powerful features designed to secure your home, office, or industrial infrastructure.
+
+          <p className="mt-6 text-lg text-gray-600">
+            A professional-grade alarm ecosystem engineered to protect residential,
+            commercial, and industrial environments.
           </p>
+        </header>
+
+        {/* Feature Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {features.map((feature, i) => {
+            const Icon = feature.icon;
+
+            return (
+              <article
+                key={i}
+                className="group relative p-8 bg-white rounded-2xl border border-blue-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
+                {/* Icon container */}
+                <div className="mb-6 flex items-center justify-center w-12 h-12 rounded-xl bg-blue-100 text-blue-600">
+                  <Icon className="w-6 h-6" />
+                </div>
+
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  {feature.title}
+                </h3>
+
+                <p className="text-gray-600 leading-relaxed">
+                  {feature.desc}
+                </p>
+
+                {/* Divider */}
+                <div className="mt-6 h-px w-full bg-gradient-to-r from-blue-100 via-blue-200 to-blue-100" />
+
+                {/* CTA */}
+                <Link
+                  href="/contact"
+                  className="mt-5 inline-flex items-center text-sm font-medium text-blue-600 opacity-0 group-hover:opacity-100 transition"
+                >
+                  Request quote →
+                </Link>
+              </article>
+            );
+          })}
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, i) => (
-            <div
-              key={i}
-              className="group p-7 bg-zinc-900 rounded-2xl border border-zinc-800 hover:border-blue-500 transition-all duration-300"
-            >
-              <div className="mb-4">{feature.icon}</div>
-
-              <h3 className="text-xl font-semibold mb-2">
-                {feature.title}
-              </h3>
-
-              <p className="text-gray-400 mb-6">
-                {feature.desc}
-              </p>
-
-              {/* Subtle Card CTA */}
-              <Link href="/contact" className="text-sm font-medium text-blue-500 opacity-0 group-hover:opacity-100 transition">
-                Get Quote →
-              </Link>
-            </div>
-          ))}
-        </div>
-
-        {/* Main CTA */}
-        <div className="mt-16 text-center">
-          <p className="text-gray-400 mb-4">
-            Want a customized alarm system for your property?
+        {/* Bottom CTA */}
+        <div className="mt-24 text-center">
+          <p className="text-gray-600 mb-6">
+            Need a system tailored to your specific security requirements?
           </p>
 
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-medium transition shadow-lg">
-            Request a Free Security Assessment
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center px-10 py-4 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-700 transition shadow-sm"
+          >
+            Get a Free Security Consultation
           </Link>
         </div>
 

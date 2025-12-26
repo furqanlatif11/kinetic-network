@@ -43,7 +43,7 @@ const navLinks: NavLink[] = [
       },
       {
         name: "Intercom Systems",
-        href: "/services/intercom",
+        href: "/services/intercom-systems",
         description: "Communication solutions",
       },
       

@@ -1,70 +1,68 @@
-'use client';
+import Link from "next/link";
+import { ReactNode } from "react";
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
-import QuoteModal from './quote-modal';
-
-interface CTAProps {
-  title?: string;
+interface ReusableCTAProps {
   subtitle?: string;
-  buttonText?: string;
-  buttonHref?: string; // optional fallback if modal not used
-  backgroundImage?: string;
-  serviceName?: string; // optional, can prefill modal
+  title: string;
+  description?: string;
+  buttonText: string;
+  buttonLink: string;
+  buttonIcon?: ReactNode;
+  bgImage?: string; // URL of background image
+  className?: string; // for margin/padding overrides
 }
 
-export default function CTA({
-  title = 'Ready to Secure Your Property?',
-  subtitle = 'Get in touch with our experts and find the perfect solution for your needs.',
-  buttonText = 'Get a Free Quote',
-  buttonHref = '/contact',
-  backgroundImage,
-  serviceName,
-}: CTAProps) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
+export default function MainCTA({
+  subtitle,
+  title,
+  description,
+  buttonText,
+  buttonLink,
+  buttonIcon,
+  bgImage,
+  className = "",
+}: ReusableCTAProps) {
   return (
     <section
-      className="relative py-20 px-6 md:px-12 rounded-3xl overflow-hidden bg-gradient-to-b from-white via-blue-200 to-white"
+      className={`relative rounded-3xl overflow-hidden shadow-2xl ${className}`}
       style={{
-        backgroundImage: backgroundImage ? `url(${backgroundImage})` : undefined,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundImage: bgImage ? `url(${bgImage})` : undefined,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
-      {/* Dark overlay for optional background image */}
-      {backgroundImage && <div className="absolute inset-0 bg-black/20 rounded-3xl"></div>}
+      {/* Optional dark overlay for readability */}
+      <div className="absolute inset-0 bg-black/10 backdrop-blur-sm"></div>
 
-      {/* Content */}
-      <div className="relative max-w-3xl mx-auto text-center flex flex-col items-center justify-center">
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900 drop-shadow-lg">
+      <div className="relative max-w-4xl mx-auto px-8 py-20 text-center flex flex-col items-center justify-center">
+        {/* Subtitle */}
+        {subtitle && (
+          <span className="text-sm md:text-base font-semibold tracking-wide text-blue-200 uppercase mb-4">
+            {subtitle}
+          </span>
+        )}
+
+        {/* Title */}
+        <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-6">
           {title}
         </h2>
-        <p className="text-lg md:text-xl text-gray-700 mb-8 drop-shadow">
-          {subtitle}
-        </p>
-        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="inline-block px-10 py-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-full shadow-lg transition-all"
-          >
-            {buttonText}
-          </button>
-        </motion.div>
-      </div>
 
-     
-      {/* Quote Modal */}
-      <AnimatePresence>
-        {isModalOpen && (
-          <QuoteModal
-            isOpen={isModalOpen}
-            onClose={() => setIsModalOpen(false)}
-            serviceName={serviceName}
-          />
+        {/* Description */}
+        {description && (
+          <p className="text-lg md:text-xl text-blue-100 mb-10 max-w-3xl">
+            {description}
+          </p>
         )}
-      </AnimatePresence>
+
+        {/* CTA Button */}
+        <Link
+          href={buttonLink}
+          className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-12 py-4 rounded-full font-semibold text-lg shadow-lg transition-transform transform hover:scale-105"
+        >
+          {buttonText}
+          {buttonIcon && buttonIcon}
+        </Link>
+      </div>
     </section>
   );
 }
