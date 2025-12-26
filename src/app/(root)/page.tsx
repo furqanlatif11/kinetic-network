@@ -16,10 +16,10 @@ export default function Home() {
       <FeaturedServicesNew />
       <FeaturedServices />
       <MainCTA
-        subtitle="Secure & Smart"
-        title="Get Your Free Intercom Consultation"
-        description="Our experts design fully scalable intercom solutions that integrate with CCTV, access control, and mobile apps."
-        buttonText="Request Consultation"
+        subtitle="Your Safety, Our Priority"
+        title="Smart Security Systems Designed for You"
+        description="Effortless communication, access control, and monitoring at your fingertips."
+        buttonText="Request Free Consultation"
         buttonLink="/contact"
         buttonIcon={<Smartphone className="w-5 h-5" />}
         bgImage="/assets/images/mainCtaBg.webp"

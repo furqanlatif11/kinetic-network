@@ -32,9 +32,9 @@ export default function MainCTA({
       }}
     >
       {/* Optional dark overlay for readability */}
-      <div className="absolute inset-0 bg-black/10 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-black/10 "></div>
 
-      <div className="relative max-w-4xl mx-auto px-8 py-20 text-center flex flex-col items-center justify-center">
+      <div className="relative max-w-4xl mx-auto px-8 py-10 text-center flex flex-col items-center justify-center">
         {/* Subtitle */}
         {subtitle && (
           <span className="text-sm md:text-base font-semibold tracking-wide text-blue-200 uppercase mb-4">
@@ -43,18 +43,9 @@ export default function MainCTA({
         )}
 
         {/* Title */}
-        <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-6">
+        <h2 className="text-3xl md:text-5xl font-semibold text-white leading-tight mb-10">
           {title}
         </h2>
-
-        {/* Description */}
-        {description && (
-          <p className="text-lg md:text-xl text-blue-100 mb-10 max-w-3xl">
-            {description}
-          </p>
-        )}
-
-        {/* CTA Button */}
         <Link
           href={buttonLink}
           className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-12 py-4 rounded-full font-semibold text-lg shadow-lg transition-transform transform hover:scale-105"
@@ -62,6 +53,14 @@ export default function MainCTA({
           {buttonText}
           {buttonIcon && buttonIcon}
         </Link>
+        {/* Description */}
+        {description && (
+          <p className="text-lg md:text-xl text-blue-100 mt-10 max-w-3xl">
+            {description}
+          </p>
+        )}
+
+        {/* CTA Button */}
       </div>
     </section>
   );
