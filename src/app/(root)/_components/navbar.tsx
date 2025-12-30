@@ -54,34 +54,29 @@ const navLinks: NavLink[] = [
     href: "/data-services",
     dropdown: [
       {
-        name: "CCTV Systems",
-        href: "/services/cctv",
-        description: "Advanced surveillance solutions",
-      },
-      {
-        name: "Access Control",
-        href: "/services/access-control",
-        description: "Secure entry management",
-      },
-      {
-        name: "Alarm Systems",
-        href: "/services/alarms",
-        description: "Intrusion detection systems",
-      },
-      {
-        name: "Intercom Systems",
-        href: "/services/intercom",
-        description: "Communication solutions",
-      },
-      {
         name: "Data Cabling",
-        href: "/services/data-cabling",
-        description: "Network infrastructure",
+        href: "/data-services/data-cabling",
+        description: "Data cabling solutions",
       },
       {
-        name: "WiFi Installation",
-        href: "/services/wifi",
-        description: "Wireless connectivity",
+        name: "Fiber Optic Cabling",
+        href: "/data-services/fiber-optic-cabling",
+        description: "High-speed connectivity",
+      },
+      {
+        name: "Internet Technician",
+        href: "/data-services/internet-technician",
+        description: "Quick actions over internet failure",
+      },
+      {
+        name: "TV Installation",
+        href: "/data-services/tv-installation",
+        description: "Professional TV mounting & setup",
+      },
+      {
+        name: "WiFi & Home Theatre",
+        href: "/data-services/wifi-home-theatre",
+        description: "Wifi & Home Theatre Setup",
       },
     ],
   },
