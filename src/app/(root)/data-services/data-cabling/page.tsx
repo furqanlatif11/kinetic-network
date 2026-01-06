@@ -1,4 +1,4 @@
-import { Shield } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import MainCTA from "../../_components/cta";
 import HeroBanner from "../../_components/HeroBanner";
 import WhyChooseKinetic from "../../_components/why-us";
@@ -24,7 +24,7 @@ export default function DataCabling() {
         description="Ensure high-speed, secure, and scalable network connectivity for your offices, data centers, and industrial facilities with our expert cabling services."
         buttonText="Request a Consultation"
         buttonLink="/contact"
-        buttonIcon={<Shield className="w-5 h-5" />}
+        buttonIcon={<ArrowRight className="w-5 h-5" />}
         bgImage="/assets/images/mainCtaBg.webp"
         className="mt-16 mb-20 mx-6"
       />

@@ -2,7 +2,6 @@ import { ArrowRight } from "lucide-react";
 import MainCTA from "../../_components/cta";
 import HeroBanner from "../../_components/HeroBanner";
 import ServiceOverview from "./components/ServiceOverview";
-import Testimonials from "./components/Testimonials";
 import TrustBar from "./components/TrustBar";
 
 export default function DataCabling() {
