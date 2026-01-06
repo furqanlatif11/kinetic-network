@@ -1,4 +1,4 @@
-import { Smartphone } from "lucide-react";
+import { ArrowRight, FormInput, Smartphone } from "lucide-react";
 import MainCTA from "./_components/cta";
 import FAQs from "./_components/faqs";
 import FeaturedServices from "./_components/featured-services";
@@ -22,7 +22,7 @@ export default function Home() {
         description="Effortless communication, access control, and monitoring at your fingertips."
         buttonText="Request Free Consultation"
         buttonLink="/contact"
-        buttonIcon={<Smartphone className="w-5 h-5" />}
+        buttonIcon={<ArrowRight className="w-5 h-5" />}
         bgImage="/assets/images/mainCtaBg.webp"
         className="mt-16 mb-20 mx-6"
       />

@@ -1,48 +1,87 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useRef } from 'react';
-import { Camera, Lock, Bell, Monitor, Wifi, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useEffect, useRef } from "react";
+import {
+  Camera,
+  Lock,
+  Bell,
+  Monitor,
+  Wifi,
+  ChevronLeft,
+  ChevronRight,
+  ArrowUpRight,
+} from "lucide-react";
 
 const services = [
   {
     icon: Camera,
-    title: 'CCTV Surveillance',
-    description: 'Advanced video surveillance systems with AI-powered analytics and 24/7 monitoring.',
-    features: ['4K Ultra HD Cameras', 'AI Motion Detection', 'Cloud Storage', 'Mobile Access'],
-    href: '/services/cctv',
-    image: '/assets/images/CCTVSystems.png',
+    title: "CCTV Surveillance",
+    description:
+      "Advanced video surveillance systems with AI-powered analytics and 24/7 monitoring.",
+    features: [
+      "4K Ultra HD Cameras",
+      "AI Motion Detection",
+      "Cloud Storage",
+      "Mobile Access",
+    ],
+    href: "/services/cctv",
+    image: "/assets/images/CCTVSystems.png",
   },
   {
     icon: Lock,
-    title: 'Access Control',
-    description: 'Smart access management systems with biometric authentication and remote monitoring.',
-    features: ['Biometric Scanners', 'Card Access', 'Remote Management', 'Entry Logs'],
-    href: '/services/access-control',
-    image: '/assets/images/AccessControl.png',
+    title: "Access Control",
+    description:
+      "Smart access management systems with biometric authentication and remote monitoring.",
+    features: [
+      "Biometric Scanners",
+      "Card Access",
+      "Remote Management",
+      "Entry Logs",
+    ],
+    href: "/services/access-control",
+    image: "/assets/images/AccessControl.png",
   },
   {
     icon: Bell,
-    title: 'Alarm Systems',
-    description: 'Intelligent intrusion detection with instant alerts and professional monitoring.',
-    features: ['Motion Sensors', 'Glass Break Detection', 'Instant Alerts', '24/7 Monitoring'],
-    href: '/services/alarms',
-    image: '/assets/images/alarmSystems.png',
+    title: "Alarm Systems",
+    description:
+      "Intelligent intrusion detection with instant alerts and professional monitoring.",
+    features: [
+      "Motion Sensors",
+      "Glass Break Detection",
+      "Instant Alerts",
+      "24/7 Monitoring",
+    ],
+    href: "/services/alarms",
+    image: "/assets/images/alarmSystems.png",
   },
   {
     icon: Monitor,
-    title: 'Intercom Systems',
-    description: 'Modern video intercom solutions with remote access and mobile integration.',
-    features: ['Video Calling', 'Remote Door Control', 'Mobile App', 'Multi-Unit Support'],
-    href: '/services/intercom',
-    image: '/assets/images/intercomSystems.png',
+    title: "Intercom Systems",
+    description:
+      "Modern video intercom solutions with remote access and mobile integration.",
+    features: [
+      "Video Calling",
+      "Remote Door Control",
+      "Mobile App",
+      "Multi-Unit Support",
+    ],
+    href: "/services/intercom",
+    image: "/assets/images/intercomSystems.png",
   },
   {
     icon: Wifi,
-    title: 'Network Solutions',
-    description: 'Professional network infrastructure with fiber optics and enterprise-grade WiFi.',
-    features: ['Fiber Optic Cabling', 'WiFi Optimization', 'Network Security', 'High-Speed Setup'],
-    href: '/services/network-solutions',
-    image: '/assets/images/networkSolutions.png',
+    title: "Network Solutions",
+    description:
+      "Professional network infrastructure with fiber optics and enterprise-grade WiFi.",
+    features: [
+      "Fiber Optic Cabling",
+      "WiFi Optimization",
+      "Network Security",
+      "High-Speed Setup",
+    ],
+    href: "/services/network-solutions",
+    image: "/assets/images/networkSolutions.png",
   },
 ];
 
@@ -53,7 +92,7 @@ export default function ServicesCarousel() {
 
   // Determine how many cards to show based on screen size
   const getCardsPerView = () => {
-    if (typeof window === 'undefined') return 4;
+    if (typeof window === "undefined") return 4;
     if (window.innerWidth < 640) return 1;
     if (window.innerWidth < 1024) return 2;
     if (window.innerWidth < 1280) return 3;
@@ -66,10 +105,10 @@ export default function ServicesCarousel() {
     const handleResize = () => {
       setCardsPerView(getCardsPerView());
     };
-    
+
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   // Auto-scroll functionality
@@ -106,29 +145,36 @@ export default function ServicesCarousel() {
             Our Security <span className="text-blue-600">Solutions</span>
           </h2>
           <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
-            Comprehensive services tailored to protect your property and ensure seamless connectivity.
+            Comprehensive services tailored to protect your property and ensure
+            seamless connectivity.
           </p>
         </div>
 
         {/* Carousel Container */}
-        <div 
+        <div
           className="relative max-w-7xl mx-auto"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
           {/* Cards Container */}
           <div className="overflow-hidden">
-            <div 
+            <div
               className="flex gap-6 transition-transform duration-700 ease-out"
-              style={{ 
-                transform: `translateX(-${currentIndex * (100 / cardsPerView)}%)`,
+              style={{
+                transform: `translateX(-${
+                  currentIndex * (100 / cardsPerView)
+                }%)`,
               }}
             >
               {services.map((service, index) => (
                 <div
                   key={index}
                   className="flex-shrink-0"
-                  style={{ width: `calc(${100 / cardsPerView}% - ${(cardsPerView - 1) * 24 / cardsPerView}px)` }}
+                  style={{
+                    width: `calc(${100 / cardsPerView}% - ${
+                      ((cardsPerView - 1) * 24) / cardsPerView
+                    }px)`,
+                  }}
                 >
                   <div className="relative group cursor-pointer overflow-hidden rounded-2xl shadow-lg h-96 transition-all duration-300 hover:shadow-2xl">
                     {/* Background Image */}
@@ -157,9 +203,42 @@ export default function ServicesCarousel() {
                           </li>
                         ))}
                       </ul>
-                      <div className="inline-block px-4 py-2 bg-blue-600 rounded-full font-semibold text-sm hover:bg-blue-700 transition">
-                        Know More
-                      </div>
+                      <a
+                        href={service.href}
+                        className="
+    group relative mt-3 inline-flex items-center gap-2 self-start
+    rounded-full px-5 py-2
+    text-sm font-semibold text-white
+    backdrop-blur-md
+    bg-white/10
+    border border-white/20
+    shadow-[0_6px_20px_rgba(0,0,0,0.35)]
+    transition-all duration-300 ease-out
+    hover:bg-white/20
+    hover:shadow-[0_10px_30px_rgba(0,0,0,0.45)]
+    active:scale-[0.96]
+  "
+                      >
+                        {/* Glass highlight */}
+                        <span
+                          className="
+      pointer-events-none absolute inset-0
+      rounded-full
+      bg-gradient-to-b from-white/40 via-white/10 to-transparent
+      opacity-50
+    "
+                        />
+
+                        {/* Text */}
+                        <span className="relative z-10 tracking-wide">
+                          Know More
+                        </span>
+
+                        {/* Arrow */}
+                        <span className="relative z-10 transition-transform duration-300 group-hover:translate-x-0.5">
+                          <ArrowUpRight size={16} />
+                        </span>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -177,7 +256,7 @@ export default function ServicesCarousel() {
               <ChevronLeft className="w-6 h-6 text-gray-800 group-hover:text-blue-600 transition-colors" />
             </button>
           )}
-          
+
           {currentIndex < maxIndex && (
             <button
               onClick={nextSlide}
@@ -196,14 +275,13 @@ export default function ServicesCarousel() {
                 onClick={() => setCurrentIndex(index)}
                 className={`transition-all duration-300 rounded-full ${
                   index === currentIndex
-                    ? 'w-8 h-2 bg-blue-600'
-                    : 'w-2 h-2 bg-gray-300 hover:bg-gray-400'
+                    ? "w-8 h-2 bg-blue-600"
+                    : "w-2 h-2 bg-gray-300 hover:bg-gray-400"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
           </div>
-
         </div>
       </div>
     </section>

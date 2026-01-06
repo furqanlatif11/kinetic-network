@@ -1,59 +1,106 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useRef } from 'react';
-import { Cpu, Wifi, Tv, Cable, Bell, Monitor, Smartphone, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useEffect, useRef } from "react";
+import {
+  Cpu,
+  Wifi,
+  Tv,
+  Cable,
+  Bell,
+  Monitor,
+  Smartphone,
+  ChevronLeft,
+  ChevronRight,
+  ArrowUpRight,
+} from "lucide-react";
 
 const services = [
   {
     icon: Cpu,
-    title: 'Internet Technician',
-    description: 'Professional internet setup and troubleshooting for homes and offices.',
-    features: ['High-Speed Setup', 'Router Configuration', 'Troubleshooting', 'On-Site Support'],
-    href: '/services/internet-technician',
-    image: '/assets/images/internetTechnician.webp',
-    badge: 'Popular',
+    title: "Internet Technician",
+    description:
+      "Professional internet setup and troubleshooting for homes and offices.",
+    features: [
+      "High-Speed Setup",
+      "Router Configuration",
+      "Troubleshooting",
+      "On-Site Support",
+    ],
+    href: "/services/internet-technician",
+    image: "/assets/images/internetTechnician.webp",
+    badge: "Popular",
   },
   {
     icon: Wifi,
-    title: 'WiFi & Home Theatre',
-    description: 'Seamless WiFi coverage and immersive home theatre installations.',
-    features: ['Smart Router Setup', 'Speaker System Integration', 'Signal Optimization', 'Mobile App Control'],
-    href: '/services/wifi-home-theatre',
-    image: '/assets/images/homeTheatre.webp',
+    title: "WiFi & Home Theatre",
+    description:
+      "Seamless WiFi coverage and immersive home theatre installations.",
+    features: [
+      "Smart Router Setup",
+      "Speaker System Integration",
+      "Signal Optimization",
+      "Mobile App Control",
+    ],
+    href: "/services/wifi-home-theatre",
+    image: "/assets/images/homeTheatre.webp",
   },
   {
     icon: Cable,
-    title: 'Fiber Optic Cabling',
-    description: 'Enterprise-grade fiber optic cabling for high-speed and stable connectivity.',
-    features: ['Structured Cabling', 'Network Design', 'High-Speed Transmission', 'Future Proof Infrastructure'],
-    href: '/services/fiber-optic-cabling',
-    image: '/assets/images/datacabling.webp',
+    title: "Fiber Optic Cabling",
+    description:
+      "Enterprise-grade fiber optic cabling for high-speed and stable connectivity.",
+    features: [
+      "Structured Cabling",
+      "Network Design",
+      "High-Speed Transmission",
+      "Future Proof Infrastructure",
+    ],
+    href: "/services/fiber-optic-cabling",
+    image: "/assets/images/datacabling.webp",
   },
   {
     icon: Tv,
-    title: 'TV Installation',
-    description: 'Professional TV mounting and setup services for perfect viewing experience.',
-    features: ['Wall Mounting', 'Cable Management', 'Smart TV Setup', 'Multiple Room Installation'],
-    href: '/services/tv-installation',
-    image: '/assets/images/tvInstallation.png',
-    badge: 'New',
+    title: "TV Installation",
+    description:
+      "Professional TV mounting and setup services for perfect viewing experience.",
+    features: [
+      "Wall Mounting",
+      "Cable Management",
+      "Smart TV Setup",
+      "Multiple Room Installation",
+    ],
+    href: "/services/tv-installation",
+    image: "/assets/images/tvInstallation.png",
+    badge: "New",
   },
   {
     icon: Bell,
-    title: 'Alarm Systems',
-    description: 'Advanced alarm systems with intelligent monitoring and instant alerts.',
-    features: ['Motion Detection', 'Smart Sensors', 'Mobile Alerts', '24/7 Monitoring'],
-    href: '/services/alarm-systems',
-    image: '/assets/images/alarmSystems.png',
+    title: "Alarm Systems",
+    description:
+      "Advanced alarm systems with intelligent monitoring and instant alerts.",
+    features: [
+      "Motion Detection",
+      "Smart Sensors",
+      "Mobile Alerts",
+      "24/7 Monitoring",
+    ],
+    href: "/services/alarm-systems",
+    image: "/assets/images/alarmSystems.png",
   },
   {
     icon: Monitor,
-    title: 'Smart Home Integration',
-    description: 'Complete smart home automation for modern living convenience.',
-    features: ['Voice Control', 'App Integration', 'Energy Management', 'Scene Automation'],
-    href: '/services/smart-home',
-    image: '/assets/images/networkSolutions.png',
-    badge: 'Trending',
+    title: "Smart Home Integration",
+    description:
+      "Complete smart home automation for modern living convenience.",
+    features: [
+      "Voice Control",
+      "App Integration",
+      "Energy Management",
+      "Scene Automation",
+    ],
+    href: "/services/smart-home",
+    image: "/assets/images/networkSolutions.png",
+    badge: "Trending",
   },
 ];
 
@@ -64,7 +111,7 @@ export default function FeaturedServicesCarousel() {
 
   // Determine how many cards to show based on screen size
   const getCardsPerView = () => {
-    if (typeof window === 'undefined') return 3;
+    if (typeof window === "undefined") return 3;
     if (window.innerWidth < 768) return 1;
     if (window.innerWidth < 1024) return 2;
     return 3;
@@ -76,10 +123,10 @@ export default function FeaturedServicesCarousel() {
     const handleResize = () => {
       setCardsPerView(getCardsPerView());
     };
-    
+
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   // Auto-scroll functionality
@@ -116,22 +163,25 @@ export default function FeaturedServicesCarousel() {
             Our <span className="text-blue-600">Featured Services</span>
           </h2>
           <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
-            Specialized solutions to keep your home and office connected and entertainment-ready.
+            Specialized solutions to keep your home and office connected and
+            entertainment-ready.
           </p>
         </div>
 
         {/* Carousel Container */}
-        <div 
+        <div
           className="relative max-w-7xl mx-auto"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
           {/* Cards Container */}
           <div className="overflow-hidden">
-            <div 
+            <div
               className="flex gap-10 transition-transform duration-700 ease-out"
-              style={{ 
-                transform: `translateX(-${currentIndex * (100 / cardsPerView)}%)`,
+              style={{
+                transform: `translateX(-${
+                  currentIndex * (100 / cardsPerView)
+                }%)`,
               }}
             >
               {services.map((service, index) => {
@@ -140,7 +190,11 @@ export default function FeaturedServicesCarousel() {
                   <div
                     key={index}
                     className="flex-shrink-0"
-                    style={{ width: `calc(${100 / cardsPerView}% - ${(cardsPerView - 1) * 40 / cardsPerView}px)` }}
+                    style={{
+                      width: `calc(${100 / cardsPerView}% - ${
+                        ((cardsPerView - 1) * 40) / cardsPerView
+                      }px)`,
+                    }}
                   >
                     <div className="relative group cursor-pointer overflow-hidden rounded-2xl shadow-xl bg-white h-96 flex flex-col justify-end transition-all duration-300 hover:shadow-2xl">
                       {/* Background Image */}
@@ -166,7 +220,9 @@ export default function FeaturedServicesCarousel() {
                           <Icon className="w-6 h-6" />
                           <h3 className="text-xl font-bold">{service.title}</h3>
                         </div>
-                        <p className="text-sm text-white opacity-80">{service.description}</p>
+                        <p className="text-sm text-white opacity-80">
+                          {service.description}
+                        </p>
                         <ul className="space-y-1 text-xs text-white opacity-80">
                           {service.features.map((feature, i) => (
                             <li key={i} className="flex items-center gap-2">
@@ -175,9 +231,42 @@ export default function FeaturedServicesCarousel() {
                             </li>
                           ))}
                         </ul>
-                        <div className="mt-3 inline-block px-4 py-2 bg-blue-600 rounded-full font-semibold text-sm text-white hover:bg-blue-700 transition self-start">
-                          Know More
-                        </div>
+                        <a
+                          href={service.href}
+                          className="
+    group relative mt-3 inline-flex items-center gap-2 self-start
+    rounded-full px-5 py-2
+    text-sm font-semibold text-white
+    backdrop-blur-md
+    bg-white/10
+    border border-white/20
+    shadow-[0_6px_20px_rgba(0,0,0,0.35)]
+    transition-all duration-300 ease-out
+    hover:bg-white/20
+    hover:shadow-[0_10px_30px_rgba(0,0,0,0.45)]
+    active:scale-[0.96]
+  "
+                        >
+                          {/* Glass highlight */}
+                          <span
+                            className="
+      pointer-events-none absolute inset-0
+      rounded-full
+      bg-gradient-to-b from-white/40 via-white/10 to-transparent
+      opacity-50
+    "
+                          />
+
+                          {/* Text */}
+                          <span className="relative z-10 tracking-wide">
+                            Know More
+                          </span>
+
+                          {/* Arrow */}
+                          <span className="relative z-10 transition-transform duration-300 group-hover:translate-x-0.5">
+                            <ArrowUpRight size={16} />
+                          </span>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -196,7 +285,7 @@ export default function FeaturedServicesCarousel() {
               <ChevronLeft className="w-6 h-6 text-gray-800 group-hover:text-blue-600 transition-colors" />
             </button>
           )}
-          
+
           {currentIndex < maxIndex && (
             <button
               onClick={nextSlide}
@@ -215,15 +304,13 @@ export default function FeaturedServicesCarousel() {
                 onClick={() => setCurrentIndex(index)}
                 className={`transition-all duration-300 rounded-full ${
                   index === currentIndex
-                    ? 'w-8 h-2 bg-blue-600'
-                    : 'w-2 h-2 bg-gray-300 hover:bg-gray-400'
+                    ? "w-8 h-2 bg-blue-600"
+                    : "w-2 h-2 bg-gray-300 hover:bg-gray-400"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
           </div>
-
-         
         </div>
       </div>
     </section>

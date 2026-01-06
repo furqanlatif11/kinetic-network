@@ -48,11 +48,50 @@ export default function MainCTA({
         </h2>
         <Link
           href={buttonLink}
-          className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-12 py-4 rounded-full font-semibold text-lg shadow-lg transition-transform transform hover:scale-105"
+          className="
+    group relative inline-flex items-center gap-3
+    rounded-full px-12 py-4
+    text-lg font-semibold text-white
+    backdrop-blur-xl
+    bg-white/10
+    border border-white/25
+    shadow-[0_10px_35px_rgba(0,0,0,0.45)]
+    transition-all duration-300 ease-out
+    hover:bg-white/20
+    hover:shadow-[0_15px_45px_rgba(0,0,0,0.6)]
+    hover:-translate-y-0.5
+    active:scale-[0.97]
+  "
         >
-          {buttonText}
-          {buttonIcon && buttonIcon}
+          {/* Glass shine */}
+          <span
+            className="
+      pointer-events-none absolute inset-0 rounded-full
+      bg-gradient-to-b from-white/40 via-white/15 to-transparent
+      opacity-60
+    "
+          />
+
+          {/* Accent glow (subtle blue aura) */}
+          <span
+            className="
+      pointer-events-none absolute -inset-1 rounded-full
+      bg-blue-500/30 blur-xl opacity-0
+      group-hover:opacity-100 transition
+    "
+          />
+
+          {/* Content */}
+          <span className="relative z-10 flex items-center gap-3">
+            {buttonText}
+            {buttonIcon && (
+              <span className="transition-transform duration-300 group-hover:translate-x-1">
+                {buttonIcon}
+              </span>
+            )}
+          </span>
         </Link>
+
         {/* Description */}
         {description && (
           <p className="text-lg md:text-xl text-blue-100 mt-10 max-w-3xl">
