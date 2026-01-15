@@ -17,9 +17,7 @@ export default function Home() {
       <FeaturedServices />
       <Testimonials />
       <MainCTA
-        subtitle="Your Safety, Our Priority"
-        title="Smart Security Systems Designed for You"
-        description="Effortless communication, access control, and monitoring at your fingertips."
+        title="Get The Smart Security Systems Designed for You"
         buttonText="Request Free Consultation"
         buttonLink="/contact"
         buttonIcon={<ArrowRight className="w-5 h-5" />}
