@@ -1,6 +1,6 @@
+import { ArrowRight } from "lucide-react";
+import MainCTA from "../../_components/cta";
 import HeroBanner from "../../_components/HeroBanner";
-import WhyChooseKinetic from "../../_components/why-us";
-import IntercomCTASection from "./_components/IntercomCTASection";
 import IntercomIndustriesSection from "./_components/IntercomIndustriesSection";
 import IntercomIntegrationSection from "./_components/IntercomIntegrationSection";
 import IntercomIntroSection from "./_components/IntercomIntroSection";
@@ -20,7 +20,14 @@ export default function AccessControlPage() {
       <IntercomTypesSection/>
       <IntercomIndustriesSection/>
       <IntercomIntegrationSection/>
-      <IntercomCTASection/>
+      <MainCTA
+              title="Get The Right Intercom System for Your Property"
+              buttonText="Request Free Consultation"
+              buttonLink="/contact"
+              buttonIcon={<ArrowRight className="w-5 h-5" />}
+              bgImage="/assets/images/mainCtaBg.webp"
+              className="mt-16 mb-20 mx-6"
+            />
     </div>
   );
 }

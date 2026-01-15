@@ -3,7 +3,12 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
-const faqs = [
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+const FAQS: FAQItem[] = [
   {
     question: "What services do you offer?",
     answer:
@@ -32,63 +37,84 @@ const faqs = [
 ];
 
 export default function FAQs() {
-  const [open, setOpen] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setActiveIndex((prev) => (prev === index ? null : index));
+  };
 
   return (
-    <section className="py-12 ">
-      <div className="max-w-5xl mx-auto px-6">
+    <section className="py-12">
+      <div className="mx-auto max-w-7xl px-6">
 
         {/* Heading */}
-        <div className="text-center mb-14">
+        <div className="mb-14 text-center">
           <h2 className="sectionHeading font-bold tracking-tight text-gray-900">
             Frequently Asked <span className="text-blue-600">Questions</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto mt-3">
+          <p className="mx-auto mt-3 max-w-2xl text-gray-600">
             Everything you need to know about our security and installation services.
           </p>
         </div>
 
         {/* FAQ List */}
-        <div className="divide-y divide-gray-200">
-          {faqs.map((faq, idx) => {
-            const isOpen = open === idx;
+        <div className="space-y-4">
+          {FAQS.map((faq, index) => {
+            const isOpen = activeIndex === index;
 
             return (
-              <div key={idx} className="py-6 border border-blue-500 rounded-lg px-6 mb-4 hover:shadow-lg transition-shadow duration-300">
-
+              <div
+                key={index}
+                className={`
+                  rounded-lg border transition-all duration-300
+                  ${isOpen
+                    ? "bg-blue-50 border-blue-500 shadow-md"
+                    : "bg-white border-gray-200 hover:shadow-sm"}
+                `}
+              >
                 {/* Question */}
                 <button
-                  onClick={() => setOpen(isOpen ? null : idx)}
-                  className="w-full flex items-center justify-between text-left group "
+                  onClick={() => toggleFAQ(index)}
+                  aria-expanded={isOpen}
+                  className="flex w-full items-center justify-between px-6 py-5 text-left group"
                 >
-                  <span className="text-lg font-medium text-gray-900 group-hover:text-black transition">
+                  <span className="text-lg font-medium text-gray-900">
                     {faq.question}
                   </span>
 
-                  <div className="transition-transform duration-300">
-                    <ChevronDown
-                      className={`w-5 h-5 text-gray-500 ${
-                        isOpen ? "rotate-180" : ""
-                      }`}
-                    />
-                  </div>
+                  <ChevronDown
+                    className={`
+                      h-5 w-5 text-gray-500
+                      transition-transform duration-300
+                      ${isOpen ? "rotate-180 text-blue-600" : ""}
+                    `}
+                  />
                 </button>
+
+                {/* Separator */}
+                {isOpen && (
+                  <div className="mx-6 h-px bg-blue-200 transition-opacity duration-300" />
+                )}
 
                 {/* Answer */}
                 <div
-                  className={`overflow-hidden transition-all duration-300 ${
-                    isOpen ? "max-h-40 mt-3" : "max-h-0"
-                  }`}
+                  className={`
+                    grid transition-all duration-300 ease-in-out
+                    ${isOpen ? "grid-rows-[1fr] px-6 py-4" : "grid-rows-[0fr] px-6"}
+                  `}
                 >
-                  <p className="text-gray-600 leading-relaxed">
-                    {faq.answer}
-                  </p>
+                  <div className="overflow-hidden">
+                    <p className="text-gray-700 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
                 </div>
 
               </div>
             );
           })}
         </div>
+
       </div>
     </section>
   );

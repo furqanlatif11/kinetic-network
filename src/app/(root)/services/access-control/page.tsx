@@ -26,17 +26,15 @@ export default function AccessControlPage() {
       <AccessProcess />
       <AccessIndustries />
       <WhyChooseUs />
-      <FAQs />
       <MainCTA
-        subtitle="Control Access with Confidence"
         title="Intelligent Access Control Solutions"
-        description="Manage doors, entry points, and user permissions seamlessly with our smart access control systems for homes, offices, and industrial facilities."
         buttonText="Schedule a Consultation"
         buttonLink="/contact"
         buttonIcon={<Shield className="w-5 h-5" />}
         bgImage="/assets/images/mainCtaBg.webp"
         className="mt-16 mb-20 mx-6"
       />
+      <FAQs />
     </div>
   );
 }
