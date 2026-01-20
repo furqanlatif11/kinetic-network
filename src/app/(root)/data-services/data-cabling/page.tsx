@@ -19,9 +19,7 @@ export default function DataCabling() {
       <WhyChooseKinetic />
       <IndustriesWeServe />
       <MainCTA
-        subtitle="Connect with Confidence"
         title="Reliable Data Cabling Solutions"
-        description="Ensure high-speed, secure, and scalable network connectivity for your offices, data centers, and industrial facilities with our expert cabling services."
         buttonText="Request a Consultation"
         buttonLink="/contact"
         buttonIcon={<ArrowRight className="w-5 h-5" />}

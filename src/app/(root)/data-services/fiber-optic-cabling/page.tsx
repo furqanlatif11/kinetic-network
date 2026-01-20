@@ -17,9 +17,7 @@ export default function DataCabling() {
       <TrustBar />
       <ServiceOverview />
       <MainCTA
-        subtitle="Ultra-Fast Fiber Connectivity"
         title="Future-Ready Fiber Optic Cabling"
-        description="Experience blazing-fast, secure, and scalable fiber optic network solutions for offices, data centers, and industrial facilities. Our expert team ensures seamless installation and long-term reliability."
         buttonText="Request a Quote"
         buttonLink="/contact"
         buttonIcon={<ArrowRight className="w-5 h-5" />}
