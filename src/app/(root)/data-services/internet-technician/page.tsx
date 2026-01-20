@@ -20,9 +20,7 @@ export default function DataCabling() {
       <ServiceProcess />
       <WhyChooseKinetic />
       <MainCTA
-        subtitle="Reliable Internet Connectivity"
         title="Professional Internet Technician Services"
-        description="From troubleshooting and router setup to Wi-Fi optimization and on-site diagnostics, Kinetic Network’s expert technicians ensure your internet is stable, fast, and secure. Experience seamless connectivity without downtime."
         buttonText="Book a Technician"
         buttonLink="/contact"
         buttonIcon={<ArrowRight className="w-5 h-5" />}
