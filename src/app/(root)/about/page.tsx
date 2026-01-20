@@ -31,9 +31,7 @@ export default function AboutPage() {
       <OurValues />
       <QuoteFormCTA />
       <MainCTA
-        subtitle="Your Safety, Our Priority"
         title="Smart Security Systems Designed for You"
-        description="Effortless communication, access control, and monitoring at your fingertips."
         buttonText="Request Free Consultation"
         buttonLink="/contact"
         buttonIcon={<Smartphone className="w-5 h-5" />}
